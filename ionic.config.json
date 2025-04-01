@@ -1,0 +1,7 @@
+{
+  "name": "s13_eas22",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}
