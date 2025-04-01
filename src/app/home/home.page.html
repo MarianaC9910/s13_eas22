@@ -1,20 +1,28 @@
-<ion-header [translucent]="true">
+<ion-header>
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Plugins en Ionic</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <ion-button expand="full" (click)="takePhoto()">Tomar Foto</ion-button>
+  <ion-button expand="full" (click)="getLocation()"> Obtener Ubicación</ion-button>
+  <ion-button expand="full" (click)="checkNetwork()"> Verificar Red</ion-button>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <div *ngIf="photo">
+    <h3>Foto tomada:</h3>
+    <img [src]="photo" *ngIf="photo" style="width: 100%; border-radius: 10px;" />
+  </div>
+
+  <div *ngIf="location">
+    <h3>Ubicación:</h3>
+    <p>Latitud: {{ location?.latitude }}</p>
+    <p>Longitud: {{ location?.longitude }}</p>
+  </div>
+  
+
+  <div *ngIf="networkStatus !== null">
+    <h3>Estado de Red:</h3>
+    <p>{{ networkStatus ? ' Conectado a Internet' : ' Sin conexión' }}</p>
   </div>
 </ion-content>
